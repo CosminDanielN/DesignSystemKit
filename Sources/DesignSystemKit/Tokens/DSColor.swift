@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 /// Design System color tokens with theme-aware semantic naming.
 ///
@@ -28,114 +29,121 @@ import SwiftUI
 public struct DSColor {
     private init() {}
     
+    /// Creates a color that dynamically adapts to the user interface style
+    private static func adaptiveColor(light: Color, dark: Color) -> Color {
+        Color(UIColor { traitCollection in
+            return traitCollection.userInterfaceStyle == .dark ? UIColor(dark) : UIColor(light)
+        })
+    }
+    
     // MARK: - Semantic Color Groups
     
     /// Text colors for different hierarchy levels
     public struct Text {
         /// Primary text color (highest emphasis)
-        public static let primary = Color(hex: "1A1A1A")
+        public static let primary = adaptiveColor(light: Light.textPrimary, dark: Dark.textPrimary)
         
         /// Secondary text color (medium emphasis)
-        public static let secondary = Color(hex: "4A4A4A")
+        public static let secondary = adaptiveColor(light: Light.textSecondary, dark: Dark.textSecondary)
         
         /// Tertiary text color (lowest emphasis)
-        public static let tertiary = Color(hex: "8A8A8A")
+        public static let tertiary = adaptiveColor(light: Light.textTertiary, dark: Dark.textTertiary)
         
         /// Disabled text color
-        public static let disabled = Color(hex: "BDBDBD")
+        public static let disabled = adaptiveColor(light: Light.textDisabled, dark: Dark.textDisabled)
         
         /// Inverse text (for dark backgrounds)
-        public static let inverse = Color(hex: "FFFFFF")
+        public static let inverse = adaptiveColor(light: Light.textInverse, dark: Dark.textInverse)
     }
     
     /// Background colors for surfaces
     public struct Background {
         /// Primary background (app background)
-        public static let primary = Color(hex: "FFFFFF")
+        public static let primary = adaptiveColor(light: Light.backgroundPrimary, dark: Dark.backgroundPrimary)
         
         /// Secondary background (elevated surfaces)
-        public static let secondary = Color(hex: "F8F9FA")
+        public static let secondary = adaptiveColor(light: Light.backgroundSecondary, dark: Dark.backgroundSecondary)
         
         /// Tertiary background (cards, containers)
-        public static let tertiary = Color(hex: "F1F3F5")
+        public static let tertiary = adaptiveColor(light: Light.backgroundTertiary, dark: Dark.backgroundTertiary)
         
         /// Elevated background (modals, popovers)
-        public static let elevated = Color(hex: "FFFFFF")
+        public static let elevated = adaptiveColor(light: Light.backgroundElevated, dark: Dark.backgroundElevated)
     }
     
     /// Border and divider colors
     public struct Border {
         /// Standard border color
-        public static let standard = Color(hex: "E1E4E8")
+        public static let standard = adaptiveColor(light: Light.borderStandard, dark: Dark.borderStandard)
         
         /// Subtle border (less prominent)
-        public static let subtle = Color(hex: "F0F2F5")
+        public static let subtle = adaptiveColor(light: Light.borderSubtle, dark: Dark.borderSubtle)
         
         /// Strong border (more prominent)
-        public static let strong = Color(hex: "D1D5DB")
+        public static let strong = adaptiveColor(light: Light.borderStrong, dark: Dark.borderStrong)
         
         /// Focused border (input fields)
-        public static let focused = Color(hex: "4F7FF2")
+        public static let focused = adaptiveColor(light: Light.borderFocused, dark: Dark.borderFocused)
     }
     
     /// Brand and accent colors
     public struct Accent {
         /// Primary brand color
-        public static let primary = Color(hex: "4F7FF2")
+        public static let primary = adaptiveColor(light: Light.accentPrimary, dark: Dark.accentPrimary)
         
         /// Secondary brand color
-        public static let secondary = Color(hex: "6B93F5")
+        public static let secondary = adaptiveColor(light: Light.accentSecondary, dark: Dark.accentSecondary)
         
         /// Tertiary accent
-        public static let tertiary = Color(hex: "A8C5F7")
+        public static let tertiary = adaptiveColor(light: Light.accentTertiary, dark: Dark.accentTertiary)
         
         /// On primary (text/icons on primary background)
-        public static let onPrimary = Color(hex: "FFFFFF")
+        public static let onPrimary = adaptiveColor(light: Light.accentOnPrimary, dark: Dark.accentOnPrimary)
     }
     
     /// Semantic status colors
     public struct Status {
         /// Success state (calm green)
-        public static let success = Color(hex: "2D9F5E")
+        public static let success = adaptiveColor(light: Light.statusSuccess, dark: Dark.statusSuccess)
         
         /// Success background (subtle)
-        public static let successBackground = Color(hex: "E6F7ED")
+        public static let successBackground = adaptiveColor(light: Light.statusSuccessBg, dark: Dark.statusSuccessBg)
         
         /// Warning state (soft amber)
-        public static let warning = Color(hex: "E89F3C")
+        public static let warning = adaptiveColor(light: Light.statusWarning, dark: Dark.statusWarning)
         
         /// Warning background (subtle)
-        public static let warningBackground = Color(hex: "FFF4E6")
+        public static let warningBackground = adaptiveColor(light: Light.statusWarningBg, dark: Dark.statusWarningBg)
         
         /// Error state (muted red)
-        public static let error = Color(hex: "D85D5D")
+        public static let error = adaptiveColor(light: Light.statusError, dark: Dark.statusError)
         
         /// Error background (subtle)
-        public static let errorBackground = Color(hex: "FFEAEA")
+        public static let errorBackground = adaptiveColor(light: Light.statusErrorBg, dark: Dark.statusErrorBg)
         
         /// Info state (soft blue)
-        public static let info = Color(hex: "4F7FF2")
+        public static let info = adaptiveColor(light: Light.statusInfo, dark: Dark.statusInfo)
         
         /// Info background (subtle)
-        public static let infoBackground = Color(hex: "E8F0FE")
+        public static let infoBackground = adaptiveColor(light: Light.statusInfoBg, dark: Dark.statusInfoBg)
     }
     
     /// Interactive element colors
     public struct Interactive {
         /// Default interactive state
-        public static let `default` = Color(hex: "4F7FF2")
+        public static let `default` = adaptiveColor(light: Light.interactiveDefault, dark: Dark.interactiveDefault)
         
         /// Hover state
-        public static let hover = Color(hex: "3D6FE0")
+        public static let hover = adaptiveColor(light: Light.interactiveHover, dark: Dark.interactiveHover)
         
         /// Pressed state
-        public static let pressed = Color(hex: "2B5FCE")
+        public static let pressed = adaptiveColor(light: Light.interactivePressed, dark: Dark.interactivePressed)
         
         /// Disabled state
-        public static let disabled = Color(hex: "E1E4E8")
+        public static let disabled = adaptiveColor(light: Light.interactiveDisabled, dark: Dark.interactiveDisabled)
         
         /// Focus ring color
-        public static let focus = Color(hex: "4F7FF2")
+        public static let focus = adaptiveColor(light: Light.interactiveFocus, dark: Dark.interactiveFocus)
     }
     
     // MARK: - Direct Color Values (for asset catalogs)

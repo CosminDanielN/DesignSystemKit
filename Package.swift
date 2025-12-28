@@ -18,21 +18,14 @@ let package = Package(
         .target(
             name: "DesignSystemKit",
             swiftSettings: [
-                .swiftLanguageMode(.v6),
-                .enableUpcomingFeature("BareSlashRegexLiterals"),
-                .enableUpcomingFeature("ConciseMagicFile"),
-                .enableUpcomingFeature("ExistentialAny"),
-                .enableUpcomingFeature("ForwardTrailingClosures"),
-                .enableUpcomingFeature("ImplicitOpenExistentials"),
-                .enableUpcomingFeature("StrictConcurrency"),
+                .swiftLanguageMode(.v6)
             ]
         ),
         .testTarget(
             name: "DesignSystemKitTests",
             dependencies: ["DesignSystemKit"],
             swiftSettings: [
-                .swiftLanguageMode(.v6),
-                .enableUpcomingFeature("StrictConcurrency"),
+                .swiftLanguageMode(.v6)
             ]
         ),
     ]

@@ -130,7 +130,7 @@ extension View {
     /// - Parameter shadow: The shadow style to apply
     /// - Returns: Modified view with shadow
     
-    @available(iOS 26, *)
+
     public func shadow(_ shadow: ShadowStyle) -> some View {
         self.shadow(
             color: shadow.color,

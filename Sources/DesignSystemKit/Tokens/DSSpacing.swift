@@ -189,7 +189,7 @@ extension CGFloat {
     /// - Parameter factor: The multiplication factor
     /// - Returns: Scaled spacing value
     
-    @available(iOS 26, *)
+
     public func scaled(by factor: CGFloat) -> CGFloat {
         return self * factor
     }

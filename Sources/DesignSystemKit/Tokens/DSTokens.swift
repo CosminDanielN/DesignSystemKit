@@ -194,7 +194,7 @@ extension View {
     /// - Parameter radius: Corner radius value from DSTokens.cornerRadius
     /// - Returns: Modified view with corner radius
     
-    @available(iOS 26, *)
+
     public func cornerRadius(_ radius: CGFloat) -> some View {
         self.clipShape(RoundedRectangle(cornerRadius: radius))
     }

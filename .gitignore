@@ -1,64 +1,74 @@
-# Xcode
-.DS_Store
-*.xcodeproj
-!*.xcodeproj/project.pbxproj
-!*.xcworkspace/contents.xcworkspacedata
-/*.gcno
-**/xcshareddata/WorkspaceSettings.xcsettings
-
 # Swift Package Manager
-.build
 .build/
 .swiftpm/
 Package.resolved
 *.xcworkspace
+/Packages
+
+# Xcode
+xcuserdata/
+*.xcodeproj
+!*.xcodeproj/project.pbxproj
+!*.xcworkspace/contents.xcworkspacedata
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.xcscmblueprint
+*.xccheckout
+build/
 
 # Playgrounds
 timeline.xctimeline
 playground.xcworkspace
 
-# CocoaPods
-Pods/
-
-# Carthage
-Carthage/Build/
-
-# fastlane
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots/**/*.png
-fastlane/test_output
-
-# Code coverage
+# Code Coverage
 *.profdata
 *.profraw
 *.coverage
-.codecov
+*.gcno
+*.gcda
+.codecov/
+coverage/
+*.lcov
 
-# IDEs
-.idea/
-*.swp
-*.swo
-*~
+# Testing
+*.xcresult
+*.xcactivitylog
 
 # macOS
 .DS_Store
 .AppleDouble
 .LSOverride
 ._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.netrc
 
 # Linux
 *~
 
-# Build artifacts
-DerivedData/
-*.hmap
-*.ipa
-*.dSYM.zip
-*.dSYM
+# Dependencies
+Carthage/Build/
+Pods/
 
-# Swift Testing
-.vscode/
-*.xcactivitylog
-.swiftpm/
-xcuserdata/
+# CI/CD
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# SwiftLint
+.swiftlint.yml.cache

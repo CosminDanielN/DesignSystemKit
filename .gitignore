@@ -1,8 +1,64 @@
+# Xcode
 .DS_Store
-/.build
-/Packages
-xcuserdata/
+*.xcodeproj
+!*.xcodeproj/project.pbxproj
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+**/xcshareddata/WorkspaceSettings.xcsettings
+
+# Swift Package Manager
+.build
+.build/
+.swiftpm/
+Package.resolved
+*.xcworkspace
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Code coverage
+*.profdata
+*.profraw
+*.coverage
+.codecov
+
+# IDEs
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+
+# Build artifacts
 DerivedData/
-.swiftpm/configuration/registries.json
-.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
-.netrc
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Testing
+.vscode/
+*.xcactivitylog
+.swiftpm/
+xcuserdata/
